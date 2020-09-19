@@ -125,3 +125,5 @@ STATIC_URL = '/static/'
 
 REDIS_HOST = 'localhost'
 REDIS_PORT = 6379
+CELERY_BROKER_URL = os.environ.get("CELERY_BROKER", "redis://localhost:6379/0")
+CELERY_RESULT_BACKEND = os.environ.get("CELERY_BROKER", "redis://localhost:6379/0")

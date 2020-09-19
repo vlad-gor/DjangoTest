@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.conf import settings
 import redis
+from Main import tasks
 
 # Connect to our Redis instance
 redis_instance = redis.StrictRedis(host=settings.REDIS_HOST,
@@ -14,5 +15,7 @@ def index(request):
 
         redis_instance.set('name', name)
         redis_instance.set('age', age)
+        task_type = age
+        task = tasks.create_task.delay(int(task_type))
 
     return render(request, 'index.html')
