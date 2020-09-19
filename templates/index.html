@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Title</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <h1>Header</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <th><label for="id_name">Name:</label></th>
+                <td><input type="text" name="name" required id="id_name" /></td>
+            </tr>
+            <tr>
+                <th><label for="id_age">Age:</label></th>
+                <td><input type="number" name="age" required id="id_age" /></td>
+            </tr>
+        </table>
+        <input type="submit" value="btn">
+    </form>
+</body>
+
+</html>
